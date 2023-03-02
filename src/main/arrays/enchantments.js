@@ -22,10 +22,11 @@ console.log(getItem([1, 2, 4, 1], 2));
  *
  * @returns {number[]} the cards with the change applied
  */
-export function setItem(cards, position, replacementCard) {
+export const setItem = (cards, position, replacementCard) => {
     cards[position] = replacementCard;
     return cards;
-}
+};
+
 console.log(setItem([1, 2, 4, 1], 2, 6));
 
 /**
@@ -36,10 +37,10 @@ console.log(setItem([1, 2, 4, 1], 2, 6));
  *
  * @returns {number[]} the cards with the newCard applied
  */
-export function insertItemAtTop(cards, newCard) {
+export const insertItemAtTop = (cards, newCard) => {
     cards.push(newCard);
     return cards;
-}
+};
 console.log(insertItemAtTop([5, 9, 7, 1], 8));
 
 /**
@@ -51,7 +52,7 @@ console.log(insertItemAtTop([5, 9, 7, 1], 8));
  * @returns {number[]} the cards without the removed card
  */
 export function removeItem(cards, position) {
-    cards.splice(position, 1)
+    cards.splice(position, 1);
     return cards;
 }
 

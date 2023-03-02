@@ -29,7 +29,7 @@
 export function frontDoorResponse(line) {
     return line[0];
 }
-console.log(frontDoorResponse('Stands so high'));
+console.log(frontDoorResponse("Stands so high"));
 /**
  * Format the password for the front-door, given the response
  * letters.
@@ -38,11 +38,11 @@ console.log(frontDoorResponse('Stands so high'));
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-   let firstLetter = frontDoorResponse(word).toLocaleUpperCase();
-   let remainder = word.substring(1).toLocaleLowerCase();
-   return firstLetter + remainder;
+    let firstLetter = frontDoorResponse(word).toLocaleUpperCase();
+    let remainder = word.substring(1).toLocaleLowerCase();
+    return firstLetter + remainder;
 }
-console.log(frontDoorPassword('SUMMER'));
+console.log(frontDoorPassword("SUMMER"));
 
 /**
  * Respond with the correct character, given the line of the
@@ -55,7 +55,7 @@ export function backDoorResponse(line) {
     line = line.trim();
     return line[line.length - 1];
 }
-console.log(backDoorResponse('Stands so high'));
+console.log(backDoorResponse("Stands so high"));
 
 /**
  * Format the password for the back door, given the response
@@ -65,6 +65,6 @@ console.log(backDoorResponse('Stands so high'));
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-    return frontDoorPassword(word) + ', please';
+    return frontDoorPassword(word) + ", please";
 }
-console.log(backDoorPassword('horse'));
+console.log(backDoorPassword("horse"));
