@@ -9,7 +9,7 @@
  * @returns {number} the card
  */
 export function getItem(cards, position) {
-    return cards[position];
+  return cards[position];
 }
 console.log(getItem([1, 2, 4, 1], 2));
 
@@ -23,8 +23,8 @@ console.log(getItem([1, 2, 4, 1], 2));
  * @returns {number[]} the cards with the change applied
  */
 export const setItem = (cards, position, replacementCard) => {
-    cards[position] = replacementCard;
-    return cards;
+  cards[position] = replacementCard;
+  return cards;
 };
 
 console.log(setItem([1, 2, 4, 1], 2, 6));
@@ -38,8 +38,8 @@ console.log(setItem([1, 2, 4, 1], 2, 6));
  * @returns {number[]} the cards with the newCard applied
  */
 export const insertItemAtTop = (cards, newCard) => {
-    cards.push(newCard);
-    return cards;
+  cards.push(newCard);
+  return cards;
 };
 console.log(insertItemAtTop([5, 9, 7, 1], 8));
 
@@ -52,8 +52,8 @@ console.log(insertItemAtTop([5, 9, 7, 1], 8));
  * @returns {number[]} the cards without the removed card
  */
 export function removeItem(cards, position) {
-    cards.splice(position, 1);
-    return cards;
+  cards.splice(position, 1);
+  return cards;
 }
 
 console.log(removeItem([3, 2, 6, 4, 8], 2));
@@ -66,8 +66,8 @@ console.log(removeItem([3, 2, 6, 4, 8], 2));
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemFromTop(cards) {
-    cards.pop();
-    return cards;
+  cards.pop();
+  return cards;
 }
 console.log(removeItemFromTop([3, 2, 6, 4, 8]));
 /**
@@ -79,8 +79,8 @@ console.log(removeItemFromTop([3, 2, 6, 4, 8]));
  * @returns {number[]} the cards including the new card
  */
 export function insertItemAtBottom(cards, newCard) {
-    cards.unshift(newCard);
-    return cards;
+  cards.unshift(newCard);
+  return cards;
 }
 console.log(insertItemAtBottom([5, 9, 7, 1], 8));
 /**
@@ -91,8 +91,8 @@ console.log(insertItemAtBottom([5, 9, 7, 1], 8));
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemAtBottom(cards) {
-    cards.shift();
-    return cards;
+  cards.shift();
+  return cards;
 }
 console.log(removeItemAtBottom([8, 5, 9, 7, 1]));
 /**
@@ -104,6 +104,11 @@ console.log(removeItemAtBottom([8, 5, 9, 7, 1]));
  * @returns {boolean} true if there are exactly stackSize number of cards, false otherwise
  */
 export function checkSizeOfStack(cards, stackSize) {
-    return cards.length === stackSize;
+
+
+
+
+    
+  return cards.length === stackSize;
 }
 console.log(checkSizeOfStack([3, 2, 6, 4, 8], 4));
