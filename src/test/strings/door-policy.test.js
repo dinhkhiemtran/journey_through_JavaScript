@@ -2,10 +2,6 @@ import { frontDoorResponse, frontDoorPassword} from '../../main/strings/door-pol
 
 describe('Summer', () => {
     test('SUMMER', () => {
-
-
-
-        
         expect(frontDoorPassword('SUMMER')).toBe('Summer');
     });
 });
