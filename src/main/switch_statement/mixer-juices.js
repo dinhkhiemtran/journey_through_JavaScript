@@ -3,7 +3,6 @@
 // The line above enables type checking for this file. Various IDEs interpret
 // the @ts-check directive. It will give you helpful autocompletion when
 // implementing this exercise.
-
 /**
  * Determines how long it takes to prepare a certain juice.
  *
@@ -27,7 +26,6 @@ export function timeToMixJuice(name) {
 }
 console.log(timeToMixJuice("Tropical Island"));
 console.log(timeToMixJuice("Berries & Lime"));
-
 /**
  * Calculates the number of limes that need to be cut
  * to reach a certain supply.
@@ -36,12 +34,9 @@ console.log(timeToMixJuice("Berries & Lime"));
  * @param {string[]} limes
  * @returns {number} number of limes cut
  */
-
 const LIME_SIZES_TO_WEDGES = {
   small: 6,
-
   medium: 8,
-
   large: 10,
 };
 export function limesToCut(wedgesNeeded, limes) {
@@ -52,7 +47,6 @@ export function limesToCut(wedgesNeeded, limes) {
   }
   return lime;
 }
-
 /**
  * Determines which juices still need to be prepared after the end of the shift.
  *
@@ -65,6 +59,5 @@ export function remainingOrders(timeLeft, orders) {
     // @ts-ignore
     timeLeft -= timeToMixJuice(orders.shift());
   }
-
   return orders;
 }

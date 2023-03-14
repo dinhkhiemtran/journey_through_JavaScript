@@ -1,13 +1,8 @@
 // @ts-check
-
 //
-
 // The line above enables type checking for this file. Various IDEs interpret
-
 // the @ts-check directive. It will give you helpful autocompletion when
-
 // implementing this exercise.
-
 /**
  * Create a function which returns a function making use of a closure to
  * perform a repeatable 2d translation of a coordinate pair.
@@ -18,11 +13,9 @@
  * @returns {function} a function which takes an x, y parameter, returns the
  *  translated coordinate pair in the form [x, y]
  */
-
 export function translate2d(dx, dy) {
   return (x, y) => [x + dx, y + dy];
 }
-
 /**
  * Create a function which returns a function making use of a closure to
  * perform a repeatable 2d scale of a coordinate pair.
@@ -33,7 +26,6 @@ export function translate2d(dx, dy) {
  * @returns {function} a function which takes an x, y parameter, returns the
  *  scaled coordinate pair in the form [x, y]
  */
-
 export function scale2d(sx, sy) {
   return (x, y) => {
     return [x * sx, y * sy];
@@ -49,11 +41,9 @@ export function scale2d(sx, sy) {
  * @returns {function} a function which takes an x, y parameter, returns the
  *  transformed coordinate pair in the form [x, y]
  */
-
 export function composeTransform(f, g) {
   return (x, y) => g(...f(x, y));
 }
-
 /**
  * Return a function which memoizes the last result.  If the arguments are the same as the last call,
  * then memoized result returned.
@@ -63,19 +53,14 @@ export function composeTransform(f, g) {
  * @returns {function} a function which takes and x, y argument, and will either return the saved result
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
-
 export function memoizeTransform(f) {
   let previousX, previousY, previousResult;
-
   return (x, y) => {
-      if (previousX === x && previousY === y) {
-          return previousResult;
-      }
-
-      previousX = x;
-
-      previousY = y;
-
-      return (previousResult = f(x, y));
+    if (previousX === x && previousY === y) {
+      return previousResult;
+    }
+    previousX = x;
+    previousY = y;
+    return (previousResult = f(x, y));
   };
 }

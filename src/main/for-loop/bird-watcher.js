@@ -3,7 +3,6 @@
 // The line above enables type checking for this file. Various IDEs interpret
 // the @ts-check directive. It will give you helpful autocompletion when
 // implementing this exercise.
-
 /**
  * Calculates the total bird count.
  *
@@ -11,7 +10,6 @@
  * @returns {number} total bird count
  */
 export const DAYS_OF_WEEK = 7;
-
 export function totalBirdCount(birdsPerDay) {
   let sum = 0;
   for (let i = 0; i < birdsPerDay.length; i++) {
@@ -37,7 +35,6 @@ export function birdsInWeek(birdsPerDay, week) {
   return count;
 }
 console.log(birdsInWeek([2, 5, 0, 7, 4, 1, 3, 0, 2, 5, 0, 1, 3, 1], 2));
-
 /**
  * Fixes the counting mistake by increasing the bird count
  * by one for every second day.

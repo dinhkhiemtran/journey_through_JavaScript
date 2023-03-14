@@ -5,7 +5,6 @@
 // and supported IDEs when implementing this exercise. You don't need to
 // understand types, JSDoc, or TypeScript in order to complete this JavaScript
 // exercise, and can completely ignore this comment block and directive.
-
 // 👋🏽 Hi again!
 //
 // A quick reminder about exercise stubs:
@@ -18,7 +17,6 @@
 // in idiomatic JavaScript, but some companies and style-guides do enforce them.
 //
 // Get those rates calculated!
-
 /**
  * The day rate, given a rate per hour
  *
@@ -30,7 +28,6 @@ export const BILLABLE_DAYS = 22;
 export function dayRate(ratePerHour) {
   return WORK_HOURS_A_DAY * ratePerHour;
 }
-
 /**
  * Calculates the number of days in a budget, rounded down
  *
@@ -40,9 +37,8 @@ export function dayRate(ratePerHour) {
  */
 export function daysInBudget(budget, ratePerHour) {
   let rate = dayRate(ratePerHour);
-  return Math.floor(budget / rate)
+  return Math.floor(budget / rate);
 }
-
 /**
  * Calculates the discounted rate for large projects, rounded up
  *
@@ -52,8 +48,13 @@ export function daysInBudget(budget, ratePerHour) {
  * @returns {number} the rounded up discounted rate
  */
 export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
-  let numberOfFullMonths = Math.floor(numDays / BILLABLE_DAYS)
-  let numberOfRemainingDays = numDays % BILLABLE_DAYS
-  let fullMonthPrice = numberOfFullMonths * BILLABLE_DAYS * dayRate(ratePerHour)
-  return Math.ceil(fullMonthPrice - discount * fullMonthPrice + numberOfRemainingDays * dayRate(ratePerHour))
+  let numberOfFullMonths = Math.floor(numDays / BILLABLE_DAYS);
+  let numberOfRemainingDays = numDays % BILLABLE_DAYS;
+  let fullMonthPrice =
+    numberOfFullMonths * BILLABLE_DAYS * dayRate(ratePerHour);
+  return Math.ceil(
+    fullMonthPrice -
+      discount * fullMonthPrice +
+      numberOfRemainingDays * dayRate(ratePerHour)
+  );
 }

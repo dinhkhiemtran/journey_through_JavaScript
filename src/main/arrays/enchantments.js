@@ -1,5 +1,4 @@
 // @ts-check
-
 /**
  * Retrieve card from cards array at the 0-based position
  *
@@ -12,7 +11,6 @@ export function getItem(cards, position) {
   return cards[position];
 }
 console.log(getItem([1, 2, 4, 1], 2));
-
 /**
  * Exchange card with replacementCard at the 0-based position
  *
@@ -26,9 +24,7 @@ export const setItem = (cards, position, replacementCard) => {
   cards[position] = replacementCard;
   return cards;
 };
-
 console.log(setItem([1, 2, 4, 1], 2, 6));
-
 /**
  * Insert newCard at the end of the cards array
  *
@@ -42,7 +38,6 @@ export const insertItemAtTop = (cards, newCard) => {
   return cards;
 };
 console.log(insertItemAtTop([5, 9, 7, 1], 8));
-
 /**
  * Remove the card at the 0-based position
  *
@@ -55,9 +50,7 @@ export function removeItem(cards, position) {
   cards.splice(position, 1);
   return cards;
 }
-
 console.log(removeItem([3, 2, 6, 4, 8], 2));
-
 /**
  * Remove card from the end of the cards array
  *
@@ -104,11 +97,6 @@ console.log(removeItemAtBottom([8, 5, 9, 7, 1]));
  * @returns {boolean} true if there are exactly stackSize number of cards, false otherwise
  */
 export function checkSizeOfStack(cards, stackSize) {
-
-
-
-
-    
   return cards.length === stackSize;
 }
 console.log(checkSizeOfStack([3, 2, 6, 4, 8], 4));

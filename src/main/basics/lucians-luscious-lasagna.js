@@ -5,7 +5,6 @@
 // and supported IDEs when implementing this exercise. You don't need to
 // understand types, JSDoc, or TypeScript in order to complete this JavaScript
 // exercise, and can completely ignore this comment block and directive.
-
 // 👋🏽 Hi there!
 //
 // On the JavaScript track we provide you with stubs. These stubs provide a
@@ -29,13 +28,11 @@
 // work with the tests, which you can find in ./lasagna.spec.js
 //
 // Good luck preparing some lasagna!
-
 /**
  * The number of minutes it takes to prepare a single layer.
  */
 const PREPARATION_MINUTES_PER_LAYER = 2;
 export const EXPECTED_MINUTES_IN_OVEN = 40;
-
 /**
  * Determines the number of minutes the lasagna still needs to remain in the
  * oven to be properly prepared.
@@ -46,7 +43,6 @@ export const EXPECTED_MINUTES_IN_OVEN = 40;
 export function remainingMinutesInOven(actualMinutesInOven) {
   return EXPECTED_MINUTES_IN_OVEN - actualMinutesInOven;
 }
-
 /**
  * Given a number of layers, determines the total preparation time.
  *
@@ -56,7 +52,6 @@ export function remainingMinutesInOven(actualMinutesInOven) {
 export function preparationTimeInMinutes(numberOfLayers) {
   return numberOfLayers * PREPARATION_MINUTES_PER_LAYER;
 }
-
 /**
  * Calculates the total working time. That is, the time to prepare all the layers
  * of lasagna, and the time already spent in the oven.
@@ -66,5 +61,5 @@ export function preparationTimeInMinutes(numberOfLayers) {
  * @returns {number} the total working time
  */
 export function totalTimeInMinutes(numberOfLayers, actualMinutesInOven) {
-  return preparationTimeInMinutes(numberOfLayers) + actualMinutesInOven
+  return preparationTimeInMinutes(numberOfLayers) + actualMinutesInOven;
 }

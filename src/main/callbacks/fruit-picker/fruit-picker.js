@@ -1,4 +1,3 @@
-
 //
 // @ts-nocheck
 //
@@ -8,27 +7,22 @@
 // them in order to use it.
 //
 // In your own projects, files, and code, you can play with @ts-check as well.
-
-import { notify } from '../main/notifier';
-import { order } from '../main/grocer';
-
-const SUCCESS = {message: 'SUCCESS'};
-const ERROR = {message: 'ERROR'};
-
+import { notify } from "../main/notifier";
+import { order } from "../main/grocer";
+const SUCCESS = { message: "SUCCESS" };
+const ERROR = { message: "ERROR" };
 /**
  * @return void
  */
 export function onSuccess() {
-    notify(SUCCESS);
+  notify(SUCCESS);
 }
-
 /**
  * @return void
  */
 export function onError() {
-    notify(ERROR);
+  notify(ERROR);
 }
-
 /**
  * @param {GrocerQuery} query
  * @param {FruitPickerSuccessCallback} onSuccessCallback
@@ -36,9 +30,8 @@ export function onError() {
  * @return void
  */
 export function orderFromGrocer(query, onSuccessCallback, onErrorCallback) {
-    return order(query, onSuccessCallback, onErrorCallback);
+  return order(query, onSuccessCallback, onErrorCallback);
 }
-
 /**
  * @param {string} variety
  * @param {number} quantity
@@ -46,5 +39,5 @@ export function orderFromGrocer(query, onSuccessCallback, onErrorCallback) {
  */
 export function postOrder(variety, quantity) {
   //implement the postOrder function to create a query and order
-  return order({ variety, quantity}, onSuccess, onError);
+  return order({ variety, quantity }, onSuccess, onError);
 }

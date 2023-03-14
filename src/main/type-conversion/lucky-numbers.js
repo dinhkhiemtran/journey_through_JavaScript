@@ -1,5 +1,4 @@
 // @ts-check
-
 /**
  * Calculates the sum of the two input arrays.
  *
@@ -13,7 +12,6 @@ export function twoSum(array1, array2) {
   return numb1 + numb2;
 }
 console.log(twoSum([1, 2, 3], [0, 7]));
-
 /**
  * Checks whether a number is a palindrome.
  *
@@ -26,7 +24,6 @@ export function luckyNumber(value) {
 }
 console.log(luckyNumber(1441));
 console.log(luckyNumber(123));
-
 /**
  * Determines the error message that should be shown to the user
  * for the given input value.
@@ -36,10 +33,8 @@ console.log(luckyNumber(123));
  */
 export function errorMessage(input) {
   if (!input) return "Required field";
-
   if (!Number(input) || Number(input) === 0)
     return "Must be a number besides 0";
-
   return "";
 }
 console.log(errorMessage("123"));
