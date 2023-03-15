@@ -1,4 +1,4 @@
-import { AbusiveClientError, NotAvailable, Untranslatable } from './errors';
+import { AbusiveClientError, NotAvailable, Untranslatable } from "./errors";
 
 const mutex = { current: false };
 
@@ -26,7 +26,7 @@ export class ExternalApi {
    * @returns {this}
    */
   register(value, translation, quality = undefined) {
-    if (typeof this.values[value] === 'undefined') {
+    if (typeof this.values[value] === "undefined") {
       this.values[value] = [];
     }
 
@@ -39,7 +39,7 @@ export class ExternalApi {
    * @returns {Promise<Translation>}
    */
   fetch(text) {
-    if (typeof text !== 'string') {
+    if (typeof text !== "string") {
       throw new BadRequest(
         `Expected text when calling fetch(text), actual ${typeof text}.`
       );
@@ -66,13 +66,13 @@ export class ExternalApi {
    * @param {(err?: Error) => void} callback
    */
   request(text, callback) {
-    if (typeof text !== 'string') {
+    if (typeof text !== "string") {
       throw new BadRequest(
         `Expected string text when calling request(text, callback), actual ${typeof text}.`
       );
     }
 
-    if (typeof callback !== 'function') {
+    if (typeof callback !== "function") {
       throw new BadRequest(
         `Expected callback function when calling fetch(text, callback), actual ${typeof callback}.`
       );

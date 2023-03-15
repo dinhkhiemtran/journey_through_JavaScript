@@ -25,20 +25,7 @@ export class TranslationService {
    * @returns {Promise<string>}
    */
   free(text) {
-    const promise = new Promise((resolve, reject) => {
-      if ("jIyaj") {
-        resolve("I understand. ");
-      } else {
-        reject(new Error("Not yet translated"));
-      }
-    });
-    promise
-      .then((e) => console.log(e))
-      .catch((err) => {
-        throw new Error(err);
-      })
-      .finally(() => console.log("Promise completed"));
-    return promise;
+    return this.api.fetch(text).then((res) => res.translation);
   }
   /**
    * Batch translates the given texts using the free service.
@@ -51,25 +38,10 @@ export class TranslationService {
    * @returns {Promise<string[]>}
    */
   batch(texts) {
-    let promise = new Promise((resolve, reject) => {
-      texts.forEach((e) => {
-        if (e === "jIyaj" && e === "majQa" + "'") {
-          resolve("I understand." + "," + "Well done!");
-        } else if (e === "jIyaj" && e !== "majQa" + "'") {
-          reject("Not yet translated");
-        } else {
-          reject(new BatchIsEmpty());
-        }
-      });
-    });
-    promise;
-    promise
-      .then((e) => console.log(e))
-      .catch((err) => {
-        throw new Error(err);
-      })
-      .finally(() => console.log("Promise completed"));
-    return promise;
+    if (texts.length === 0) {
+        return Promise.reject(new BatchIsEmpty());
+    }
+    return Promise.all(texts.map(this.free.bind(this)));
   }
   /**
    * Requests the service for some text to be translated.
@@ -81,7 +53,16 @@ export class TranslationService {
    * @returns {Promise<void>}
    */
   request(text) {
-    throw new Error("Implement the request function");
+    const promisify = () =>
+      new Promise((resolve, reject) => {
+        this.api.request(text, (result) => {
+          // @ts-ignore
+          result ? reject(result) : resolve();
+        });
+      });
+    return promisify() //   try
+      .catch(promisify) // retry one
+      .catch(promisify); // retry two
   }
   /**
    * Retrieves the translation for the given text
@@ -94,7 +75,20 @@ export class TranslationService {
    * @returns {Promise<string>}
    */
   premium(text, minimumQuality) {
-    throw new Error("Implement the premium function");
+    return this.api
+      .fetch(text)
+      .catch(() => {
+        // When it fails to fetch, request it.
+        // When the request passes, fetch it again.
+        return this.request(text).then(() => this.api.fetch(text));
+      })
+      .then((result) => {
+        if (result.quality < minimumQuality) {
+          // @ts-ignore
+          throw new QualityThresholdNotMet();
+        }
+        return result.translation;
+      });
   }
 }
 /**
