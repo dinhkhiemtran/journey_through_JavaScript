@@ -1,4 +1,4 @@
-// @ts-check
+// @ts-nocheck
 
 /**
  * Given a certain command, help the chatbot recognize whether the command is valid or not.
@@ -9,7 +9,7 @@
 
 export function isValidCommand(command) {
     const regex = /^chatbot/i;
-    return regex.test(command);
+    return regex.test(command)
 }
 const test = isValidCommand("Chatbot, play a song from the 80's.");
 // => True
@@ -39,10 +39,16 @@ console.log(removedEmoji);
  * @param {string} number
  * @returns {string} the Chatbot response to the phone Validation
  */
+export const IS_VALID = "Thanks! You can now download me to your phone.";
+export const NOT_VALID = "Oops, it seems like I can't reach out to ";
 export function checkPhoneNumber(number) {
-  throw new Error("Please implement the checkPhoneNumber function");
+    const regex = /\(\+\d{2}\)\s\d{3}\-\d{3}\-\d{3}/gm;
+    return number.match(regex) ? IS_VALID : NOT_VALID + number;
 }
-
+console.log(checkPhoneNumber('(+34) 659-771-594'));
+// => "Thanks! You can now download me to your phone."
+console.log(checkPhoneNumber('659-771-594'));
+// => "Oops, it seems like I can't reach out 
 /**
  * Given a certain response from the user, help the chatbot get only the URL.
  *
@@ -50,9 +56,10 @@ export function checkPhoneNumber(number) {
  * @returns {string[] | null} all the possible URL's that the user may have answered
  */
 export function getURL(userInput) {
-  throw new Error("Please implement the userInput function");
+    const regex = /\S*\.\S*/g
+    return userInput.match(regex);
 }
-
+console.log(getURL('I learned a lot from exercism.com'));
 /**
  * Greet the user using the full name data from the profile.
  *
@@ -60,5 +67,9 @@ export function getURL(userInput) {
  * @returns {string} Greeting from the chatbot
  */
 export function niceToMeetYou(fullName) {
-  throw new Error("Please implement the fullName function");
+    const regex = /, /;
+    let split = fullName.split(regex);
+    return `Nice to meet you, ${split[1]} ${split[0]}`;
 }
+let str = 'Smith, John';
+console.log(niceToMeetYou(str));

@@ -27,6 +27,8 @@ export class TranslationService {
   free(text) {
     return this.api.fetch(text).then((res) => res.translation);
   }
+
+  log
   /**
    * Batch translates the given texts using the free service.
    *
