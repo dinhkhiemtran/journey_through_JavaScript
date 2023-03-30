@@ -66,6 +66,7 @@ export class SinglyLinkedList {
       previousNode.setNext(newNode);
       newNode.setNext(current);
     }
+    this.size++;
   }
   removeAt(position) {
     const isPositionInTheRange = position > -1 && position <= this.size;
@@ -110,7 +111,7 @@ export class SinglyLinkedList {
   }
   print() {
     let current = this.head;
-    if (this.head === null) return "Empty";
+    if (this.head === null) console.log("Empty"); 
     while (current != null) {
       console.log(current,getData() + ",");
       current = current.getNext();
